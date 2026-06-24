@@ -24,24 +24,24 @@ public class ProductsController
 
     @GetMapping("")
     @PreAuthorize("permitAll()")
-    public List<Product> search(@RequestParam(name="cat", required = false) Integer categoryId,
+    public ResponseEntity<List<Product>> search(@RequestParam(name="cat", required = false) Integer categoryId,
                                 @RequestParam(name="minPrice", required = false) Double minPrice,
                                 @RequestParam(name="maxPrice", required = false) Double maxPrice,
                                 @RequestParam(name="subCategory", required = false) String subCategory)
     {
-        return productService.search(categoryId, minPrice, maxPrice, subCategory);
+        return ResponseEntity.ok(productService.search(categoryId, minPrice, maxPrice, subCategory));
     }
 
     @GetMapping("{id}")
     @PreAuthorize("permitAll()")
-    public Product getById(@PathVariable int id)
+    public ResponseEntity<Product> getById(@PathVariable int id)
     {
         Product product = productService.getById(id);
 
         if (product == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
-        return product;
+        return ResponseEntity.ok(product);
     }
 
     @PostMapping()
@@ -54,12 +54,12 @@ public class ProductsController
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public Product updateProduct(@PathVariable int id, @RequestBody Product product)
+    public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product product)
     {
         if (productService.getById(id) == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
-        return productService.update(id, product);
+        return ResponseEntity.ok(productService.update(id, product));
     }
 
     @DeleteMapping("/{id}")

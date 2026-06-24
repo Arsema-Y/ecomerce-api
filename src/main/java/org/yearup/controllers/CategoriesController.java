@@ -28,30 +28,29 @@ public class CategoriesController
     }
 
     @GetMapping
-    public List<Category> getAll()
+    public ResponseEntity<List<Category>> getAll()
     {
         // find and return all categories
-        return categoryService.getAllCategories();
+        return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
     @GetMapping("/{id}")
-    public Category getById(@PathVariable int id)
+    public ResponseEntity<Category> getById(@PathVariable int id)
     {
-        // get the category by id
         Category category = categoryService.getById(id);
 
         if(category == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
-        return category;
+        return ResponseEntity.ok(category);
     }
 
 
     @GetMapping("{categoryId}/products") // https://localhost:8080/categories/1/products
-    public List<Product> getProductsById(@PathVariable int categoryId)
+    public ResponseEntity<List<Product>> getProductsById(@PathVariable int categoryId)
     {
         // get a list of product by categoryId
-        return productService.listByCategoryId(categoryId);
+        return ResponseEntity.ok(productService.listByCategoryId(categoryId));
     }
 
 
@@ -67,13 +66,13 @@ public class CategoriesController
 
     @PutMapping("{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public Category updateCategory(@PathVariable int id, @RequestBody Category category)
+    public ResponseEntity<Category> updateCategory(@PathVariable int id, @RequestBody Category category)
     {
         // update the category by id and return the updated category (200 OK)
         if (categoryService.getById(id) == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
-        return categoryService.update(id, category);
+        return ResponseEntity.ok(categoryService.update(id, category));
     }
 
 
