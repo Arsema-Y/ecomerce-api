@@ -39,7 +39,8 @@ public class ShoppingCartController {
     public ResponseEntity<ShoppingCart> addProduct(Principal principal,
                                                   @PathVariable int productId) {
         int userId = userService.getByUserName(principal.getName()).getId();
-        return ResponseEntity.status(201).body(shoppingCartService.addProduct(userId, productId));
+        return ResponseEntity.status(201).body(shoppingCartService.addProduct(userId,
+                                                                              productId));
     }
 
     // https://localhost:8080/cart/products/15  (15 is the productId to be updated)
