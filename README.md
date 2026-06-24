@@ -11,8 +11,8 @@ This project is the backend API for an e-commerce web application. The frontend 
 
 The API was built on top of existing starter code. The work involved:
 - 🐛 Finding and fixing bugs in the product search and update logic
-- 🏗️ Implementing the Categories feature from scratch
-- 🛒 Building the Shopping Cart feature end to end
+- 🏗️ Implementing the Categories feature 
+- 🛒 Building the Shopping Cart feature 
 - 👤 Adding User Profile view and edit functionality
 
 ---
@@ -171,3 +171,6 @@ public ShoppingCart addProduct(int userId, int productId) {
     return getByUserId(userId);
 }
 ```
+
+## + Addition
+![image alt](https://github.com/Arsema-Y/ecomerce-api/blob/main/screenshots/filter-max%20price%20correction.png?raw=true)
