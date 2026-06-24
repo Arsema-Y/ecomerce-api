@@ -163,7 +163,7 @@ public ShoppingCart addProduct(int userId, int productId) {
         newItem.setQuantity(1);
         shoppingCartRepository.save(newItem);
     } else {
-        // product already in cart — just bump the quantity
+        // product already in cart — just increase the quantity
         itemInCart.setQuantity(itemInCart.getQuantity() + 1);
         shoppingCartRepository.save(itemInCart);
     }
