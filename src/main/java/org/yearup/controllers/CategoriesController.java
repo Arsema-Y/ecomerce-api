@@ -39,9 +39,6 @@ public class CategoriesController
     {
         Category category = categoryService.getById(id);
 
-        if(category == null)
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
         return ResponseEntity.ok(category);
     }
 

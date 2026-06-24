@@ -6,9 +6,6 @@ import org.springframework.web.server.ResponseStatusException;
 import org.yearup.models.Profile;
 import org.yearup.repository.ProfileRepository;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class ProfileService {
     private final ProfileRepository profileRepository;

@@ -44,11 +44,11 @@ public class ShoppingCartController {
 
     // https://localhost:8080/cart/products/15  (15 is the productId to be updated)
     @PutMapping("products/{productId}")
-    public ShoppingCart updateProduct(Principal principal,
+    public ResponseEntity<ShoppingCart> updateProduct(Principal principal,
                                       @PathVariable int productId,
                                       @RequestBody ShoppingCartItem item) {
         int userId = userService.getByUserName(principal.getName()).getId();
-        return shoppingCartService.updateProduct(userId, productId, item);
+        return ResponseEntity.ok(shoppingCartService.updateProduct(userId, productId, item));
     }
 
     // https://localhost:8080/cart  - return the (now empty) cart so the front end can refresh it (200 OK)

@@ -25,10 +25,10 @@ public class ShoppingCartService {
 
         for (CartItem cartItem : cartItems) {
             Product product = productService.getById(cartItem.getProductId());
-            ShoppingCartItem cartItem1 = new ShoppingCartItem();
-            cartItem1.setProduct(product);
-            cartItem1.setQuantity(cartItem.getQuantity());
-            cart.add(cartItem1);
+            ShoppingCartItem itemInCart = new ShoppingCartItem();
+            itemInCart.setProduct(product);
+            itemInCart.setQuantity(cartItem.getQuantity());
+            cart.add(itemInCart);
         }
 
         return cart;
