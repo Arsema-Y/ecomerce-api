@@ -87,4 +87,11 @@ public class AuthenticationController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
+    /* TODO
+  0 - get thru the phases (1-5) 5=0
+  1. Add ResponseEntity to all - x
+  2. Create read-me - x
+  3. creat project board - x
+  4. create diagram - x
+ */
 }

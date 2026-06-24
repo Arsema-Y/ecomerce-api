@@ -53,6 +53,10 @@ The API was built on top of existing starter code. The work involved:
 ```
 
 ---
+## 🔳↔🔲 Database Diagram
+![diagram.png](screenshots/diagram.png)
+
+---
 
 ## 🧰 Technologies Used
 
