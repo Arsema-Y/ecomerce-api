@@ -1,4 +1,5 @@
-# 🛒 E-Commerce API — Capstone 3
+#  👔 ShowOff Clothing store 🛒
+   ###     _E-Commerce API_
 
 A (mostly) functional backend REST API for an online store, built with Spring Boot and MySQL. **Users** can browse products by category, manage a shopping cart, and update their profile. **Admins** can manage products and categories.
 
